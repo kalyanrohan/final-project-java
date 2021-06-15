@@ -8,7 +8,7 @@ public class Airline implements Details {
     private LocalDateTime estArrival;
     private int gateNumber;
     private float ticketPrice;
-    private ArrayList<Passenger>passengerlist=new ArrayList<>();
+    private ArrayList<String>passengerList=new ArrayList<>();
 
     public Airline(String airlineName,String flightNum,String Dest,LocalDateTime dep,LocalDateTime avl,int gateNumber,
                    float ticketPrice){
@@ -19,6 +19,9 @@ public class Airline implements Details {
         this.estArrival=avl;
         this.gateNumber=gateNumber;
         this.ticketPrice=ticketPrice;
+    }
+    public Airline(){
+
     }
 //setters
     public void setFlightName(String name) {
@@ -77,25 +80,26 @@ public class Airline implements Details {
         return ticketPrice;
     }
 
-    public boolean isFullCapacity(ArrayList<Passenger> passengerList){
+    public ArrayList<String> getPassengerList() {
+        return passengerList;
+    }
+
+    public boolean isFullCapacity(){
         boolean fullCapacity = Boolean.FALSE;
         int maximumCapacity = 100;
-        if(passengerList.size()== maximumCapacity){
+        if(passengerList.size()>= maximumCapacity){
             fullCapacity =Boolean.TRUE;
         }
         return fullCapacity;
     }
 
     public void addPassengers(Passenger passenger){
-        if(isFullCapacity(passengerlist)==Boolean.FALSE){
-            passengerlist.add(passenger);
+        if(isFullCapacity()==Boolean.FALSE){
+            passengerList.add(passenger.getFirstName()+" "+passenger.getLastName());
         }
         else{
             System.out.println("Airline have reached maximum capacity. ");
         }
     }
-
-
-
 
 }

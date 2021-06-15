@@ -1,15 +1,10 @@
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Airport {
     public String name;
     public String location;
     public ArrayList<Airline> airlines=new ArrayList<>();
-    public ArrayList<Passenger>passengers=new ArrayList<>();
-    public Scanner sc= new Scanner(System.in);
     public Airport(String Name,String Location){
         this.location=Location;
         this.name=Name;
@@ -35,23 +30,161 @@ public class Airport {
         Airline airline=new Airline(airlineName,flightNum,Dest,dep,avl,gateNumber,ticketPrice);
         airlines.add(airline);
     }
+
     public void displayAirlines() {
+        int counter=1;
         for (Airline airline : airlines) {
-            System.out.println(airline.getFlightName());
-            System.out.println(airline.getFlightNumber());
-            System.out.println(airline.getDestination());
-            System.out.println(airline.getDeparture());
-            System.out.println(airline.getEstArrival());
-            System.out.println(airline.getGateNum());
+            System.out.println(counter+". ");
+            System.out.println("Flight Name: "+airline.getFlightName());
+            System.out.println("Flight Number: "+airline.getFlightNumber());
+            System.out.println("Destination: "+airline.getDestination());
+            System.out.println("Departure date and time: "+airline.getDeparture());
+            System.out.println("Arrival date and time: "+airline.getEstArrival());
+            System.out.println("Gate Number: "+airline.getGateNum());
+            System.out.println("Ticket Price: "+airline.getTicketPrice());
             System.out.println();
+            counter++;
         }
     }
 
-    public void buyTicket(Account passenger){
-        String input;
-        System.out.println("Please enter your destination.");
-        input=sc.nextLine();
+    public boolean displayAirlines(String flightName,String destination,float maxPrice) {
+        int counter=1;
+        boolean successful=Boolean.TRUE;
+        for (Airline airline : airlines) {
+            if(airline.getFlightName().equalsIgnoreCase(flightName) &&
+                    airline.getDestination().equalsIgnoreCase(destination) &&airline.getTicketPrice()<=maxPrice){
+                System.out.println(counter+". ");
+                System.out.println("Flight Name: "+airline.getFlightName());
+                System.out.println("Flight Number: "+airline.getFlightNumber());
+                System.out.println("Destination: "+airline.getDestination());
+                System.out.println("Departure date and time: "+airline.getDeparture());
+                System.out.println("Arrival date and time: "+airline.getEstArrival());
+                System.out.println("Gate Number: "+airline.getGateNum());
+                System.out.println("Ticket Price: "+airline.getTicketPrice());
+                System.out.println();
+                counter++;
 
+
+            }
+            else if(flightName.equals("")&&airline.getDestination().equalsIgnoreCase(destination)
+                    &&airline.getTicketPrice()<=maxPrice){
+                System.out.println(counter+". ");
+                System.out.println("Flight Name: "+airline.getFlightName());
+                System.out.println("Flight Number: "+airline.getFlightNumber());
+                System.out.println("Destination: "+airline.getDestination());
+                System.out.println("Departure date and time: "+airline.getDeparture());
+                System.out.println("Arrival date and time: "+airline.getEstArrival());
+                System.out.println("Gate Number: "+airline.getGateNum());
+                System.out.println("Ticket Price: "+airline.getTicketPrice());
+                System.out.println();
+                counter++;
+
+
+            }
+            else if(destination.equals("")&&airline.getFlightName().equalsIgnoreCase(flightName)&&airline.getTicketPrice()<=maxPrice){
+                System.out.println(counter+". ");
+                System.out.println("Flight Name: "+airline.getFlightName());
+                System.out.println("Flight Number: "+airline.getFlightNumber());
+                System.out.println("Destination: "+airline.getDestination());
+                System.out.println("Departure date and time: "+airline.getDeparture());
+                System.out.println("Arrival date and time: "+airline.getEstArrival());
+                System.out.println("Gate Number: "+airline.getGateNum());
+                System.out.println("Ticket Price: "+airline.getTicketPrice());
+                System.out.println();
+                counter++;
+
+            }
+            else if(maxPrice==0&&airline.getFlightName().equalsIgnoreCase(flightName)&&airline.getDestination().equalsIgnoreCase(destination)){
+                System.out.println(counter+". ");
+                System.out.println("Flight Name: "+airline.getFlightName());
+                System.out.println("Flight Number: "+airline.getFlightNumber());
+                System.out.println("Destination: "+airline.getDestination());
+                System.out.println("Departure date and time: "+airline.getDeparture());
+                System.out.println("Arrival date and time: "+airline.getEstArrival());
+                System.out.println("Gate Number: "+airline.getGateNum());
+                System.out.println("Ticket Price: "+airline.getTicketPrice());
+                System.out.println();
+                counter++;
+
+            }
+            else if(flightName.equals("")&&destination.equals("")
+                    &&airline.getTicketPrice()<=maxPrice){
+                System.out.println(counter+". ");
+                System.out.println("Flight Name: "+airline.getFlightName());
+                System.out.println("Flight Number: "+airline.getFlightNumber());
+                System.out.println("Destination: "+airline.getDestination());
+                System.out.println("Departure date and time: "+airline.getDeparture());
+                System.out.println("Arrival date and time: "+airline.getEstArrival());
+                System.out.println("Gate Number: "+airline.getGateNum());
+                System.out.println("Ticket Price: "+airline.getTicketPrice());
+                System.out.println();
+                counter++;
+
+            }
+            else if(flightName.equals("")&&airline.getDestination().equalsIgnoreCase(destination)
+                    &&maxPrice==0){
+                System.out.println(counter+". ");
+                System.out.println("Flight Name: "+airline.getFlightName());
+                System.out.println("Flight Number: "+airline.getFlightNumber());
+                System.out.println("Destination: "+airline.getDestination());
+                System.out.println("Departure date and time: "+airline.getDeparture());
+                System.out.println("Arrival date and time: "+airline.getEstArrival());
+                System.out.println("Gate Number: "+airline.getGateNum());
+                System.out.println("Ticket Price: "+airline.getTicketPrice());
+                System.out.println();
+                counter++;
+
+            }
+            else if(destination.equals("")&&flightName.equalsIgnoreCase(airline.getFlightName())
+                    &&maxPrice==0){
+                System.out.println(counter+". ");
+                System.out.println("Flight Name: "+airline.getFlightName());
+                System.out.println("Flight Number: "+airline.getFlightNumber());
+                System.out.println("Destination: "+airline.getDestination());
+                System.out.println("Departure date and time: "+airline.getDeparture());
+                System.out.println("Arrival date and time: "+airline.getEstArrival());
+                System.out.println("Gate Number: "+airline.getGateNum());
+                System.out.println("Ticket Price: "+airline.getTicketPrice());
+                System.out.println();
+                counter++;
+
+            }
+            else {
+                successful=Boolean.FALSE;
+            }
+        }
+        return successful;
+    }
+
+    public void buyTicket(Account account,Passenger passenger,Airline airline){
+        if(account.getBalance()>=airline.getTicketPrice()){
+            account.withDraw(airline.getTicketPrice());
+            Ticket ticket=new Ticket(passenger.getFirstName(), passenger.getLastName(), passenger.getAge(),
+                    passenger.getNationality(), airline.getFlightName(), airline.getFlightNumber(), airline.getDestination(),
+                    airline.getDeparture(), airline.getEstArrival(), airline.getGateNum(),passenger.isCheckedIn(),
+                    passenger.isImmigrationStamped(),passenger.getGender());
+            airline.addPassengers(passenger);
+            passenger.getMyTickets().add(ticket);
+        }
+        else{
+            if(account.getBalance()<airline.getTicketPrice()&& airline.isFullCapacity()==Boolean.FALSE){
+                System.out.println("Sorry you have insufficient funds. ");
+            }
+            else if(account.getBalance()<airline.getTicketPrice()&&airline.isFullCapacity()==Boolean.TRUE){
+                System.out.println("The airline is already fully booked ");
+            }
+            else{
+                System.out.println("Sorry you have insufficient funds and the airline is already fully booked ");
+            }
+        }
+
+    }
+
+    public ArrayList<Airline> getAirlineList(){
+        return airlines;
+    }
+
+    public void immigration(Passenger passenger,Airline airline){
 
     }
 }

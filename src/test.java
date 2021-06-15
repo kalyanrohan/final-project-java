@@ -1,13 +1,17 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class test{
     public static void main(String[] args){
-        LocalDate example=LocalDate.of(2002,10,15);
-        LocalTime sample=LocalTime.of(12,15);
-        System.out.println(example);
+        String sample;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter input: ");
+        sample=sc.nextLine();
+        System.out.println("Here is your output: ");
         System.out.println(sample);
-
 
     }
 }

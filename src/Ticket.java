@@ -1,5 +1,4 @@
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 public class Ticket extends Passenger implements Details{
     private String TairlineName;
@@ -8,22 +7,21 @@ public class Ticket extends Passenger implements Details{
     private LocalDateTime Tdeparture;
     private LocalDateTime TestArrival;
     private int TgateNum;
-    private String TseatType;
-    private int TseatNum;
+
 
     public Ticket(String firstName, String lastName, int age, String nationality, String airlineName,String flightNumber,
-                  String Destination,LocalDateTime departure, LocalDateTime estArrival,int gateNum,boolean checkedIn,boolean immigrationStamped,
-                  String seatType, int seatNum, String gender) {
+                  String Destination,LocalDateTime departure, LocalDateTime estArrival,int gateNum,boolean checkedIn,boolean immigrationStamped, String gender) {
         super(firstName, lastName, age, nationality,checkedIn,immigrationStamped,gender);
         this.TairlineName=airlineName;
         this.TflightNumber=flightNumber;
-        this.TseatNum=seatNum;
-        this.TseatType=seatType;
         this.TDestination=Destination;
         this.Tdeparture=departure;
         this.TestArrival=estArrival;
         this.TgateNum=gateNum;
     }
+
+
+
     //getters
 
 
@@ -55,9 +53,6 @@ public class Ticket extends Passenger implements Details{
         return TflightNumber;
     }
 
-    public int getTseatNum() {
-        return TseatNum;
-    }
 
     public LocalDateTime getDeparture() {
         return Tdeparture;
@@ -71,14 +66,10 @@ public class Ticket extends Passenger implements Details{
         return TDestination;
     }
 
-    public String getTseatType() {
-        return TseatType;
-    }
 
     public int getGateNum() {
         return TgateNum;
     }
-
 
     //setters
 
@@ -107,13 +98,6 @@ public class Ticket extends Passenger implements Details{
         this.TgateNum = gateNum.getGateNum();
     }
 
-    public void setTseatType(String tseatType) {
-        this.TseatType = tseatType;
-    }
-
-    public void setTseatNum(int tseatNum) {
-        this.TseatNum = tseatNum;
-    }
 
 
 }

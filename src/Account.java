@@ -37,12 +37,12 @@ public class Account extends Passenger{
         System.out.println("Your current balance is: "+balance);
     }
 
-    public void withDraw(float amt){
+    public boolean withDraw(float amt){
+        boolean successful=Boolean.FALSE;
         if(amt<=balance){
             balance-=amt;
+            successful=Boolean.TRUE;
         }
-        else{
-            System.out.println("Sorry you have insufficient funds. ");
-        }
+        return successful;
     }
 }
