@@ -51,12 +51,11 @@ public class driver {
         do {
             System.out.println("---E-PORT MENU---");
             System.out.println("1. BOOK A FLIGHT");
-            System.out.println("2. IMMIGRATION");
-            System.out.println("3. CHECK IN");
-            System.out.println("4. DEPOSIT");
-            System.out.println("5. ACCOUNT INFO");
-            System.out.println("6. CANCEL BOOKING");
-            System.out.println("7. EXIT/LOGOUT");
+            System.out.println("2. CHECK IN/IMMIGRATION");
+            System.out.println("3. DEPOSIT");
+            System.out.println("4. ACCOUNT INFO");
+            System.out.println("5. CANCEL BOOKING");
+            System.out.println("6. EXIT/LOGOUT");
             System.out.println("array size: "+passenger.getMyTickets().size());
             System.out.println("array size: "+passenger.getTicketsIBought().size());
             System.out.println();
@@ -219,17 +218,27 @@ public class driver {
                     }
                     break;
                 case 2:
-                    System.out.println("Which ticket do you want to check in with?");
+                    passenger.getTicketDetails();
+                    System.out.println("Confirm check in?");
+                    System.out.println("1. Yes I want to confirm.");
+                    System.out.println("2. Back");
+                    int choice2;
+                    choice2=sc.nextInt();
+                    if(choice2==1){
+                        passenger.setCheckedIn(Boolean.TRUE);
+                        passenger.setImmigrationStamped(Boolean.TRUE);
+                    }
+                    else{
+                        break;
+                    }
                     break;
                 case 3:
-                    break;
-                case 4:
                     float amt;
                     System.out.println("Enter deposit amount: ");
                     amt=sc.nextFloat();
                     account.deposit(amt);
                     break;
-                case 5:
+                case 4:
                     System.out.println("Here are your account details: ");
                     passenger.getDetails();
                     System.out.println("Your balance in your account is: "+account.getBalance());
@@ -241,14 +250,10 @@ public class driver {
                         passenger.getTicketsIBought().get(i).getTicketDetails();
                     }
                     break;
-                case 6:
+                case 5:
                     int subChoice1;
                     if(passenger.getMyTickets().size()==0&&passenger.getTicketsIBought().size()==0){
                         System.out.println("Sorry you have not purchased any tickets");
-                        break;
-                    }
-                    if(passenger.isCheckedIn()==Boolean.TRUE){
-                        System.out.println("Refund is not available because you have checked in.");
                         break;
                     }
                     System.out.println("Confirm cancellation of booking: ");
@@ -258,6 +263,10 @@ public class driver {
                     subChoice1=sc.nextInt();
                     sc.nextLine();
                     if (subChoice1==1){
+                        if(passenger.isCheckedIn()==Boolean.TRUE){
+                            System.out.println("Refund is not available because you have checked in.");
+                            break;
+                        }
                         passenger.getTicketDetails();
                         System.out.println("Enter flight number of the ticket to be cancelled: ");
                         String flightNumber;
@@ -321,7 +330,7 @@ public class driver {
                     }
             }
         }
-        while(choice!=7);
+        while(choice!=6);
         System.out.println("PROGRAM TERMINATED");
     }
 }
