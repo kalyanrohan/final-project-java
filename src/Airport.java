@@ -48,11 +48,12 @@ public class Airport {
     }
 
     public boolean displayAirlines(String flightName,String destination,float maxPrice) {
-        int counter=1;
+        int counter=0;
         boolean successful=Boolean.TRUE;
         for (Airline airline : airlines) {
             if(airline.getFlightName().equalsIgnoreCase(flightName) &&
                     airline.getDestination().equalsIgnoreCase(destination) &&airline.getTicketPrice()<=maxPrice){
+                counter++;
                 System.out.println(counter+". ");
                 System.out.println("Flight Name: "+airline.getFlightName());
                 System.out.println("Flight Number: "+airline.getFlightNumber());
@@ -62,12 +63,12 @@ public class Airport {
                 System.out.println("Gate Number: "+airline.getGateNum());
                 System.out.println("Ticket Price: "+airline.getTicketPrice());
                 System.out.println();
-                counter++;
 
 
             }
             else if(flightName.equals("")&&airline.getDestination().equalsIgnoreCase(destination)
                     &&airline.getTicketPrice()<=maxPrice){
+                counter++;
                 System.out.println(counter+". ");
                 System.out.println("Flight Name: "+airline.getFlightName());
                 System.out.println("Flight Number: "+airline.getFlightNumber());
@@ -77,11 +78,11 @@ public class Airport {
                 System.out.println("Gate Number: "+airline.getGateNum());
                 System.out.println("Ticket Price: "+airline.getTicketPrice());
                 System.out.println();
-                counter++;
 
 
             }
             else if(destination.equals("")&&airline.getFlightName().equalsIgnoreCase(flightName)&&airline.getTicketPrice()<=maxPrice){
+                counter++;
                 System.out.println(counter+". ");
                 System.out.println("Flight Name: "+airline.getFlightName());
                 System.out.println("Flight Number: "+airline.getFlightNumber());
@@ -91,10 +92,10 @@ public class Airport {
                 System.out.println("Gate Number: "+airline.getGateNum());
                 System.out.println("Ticket Price: "+airline.getTicketPrice());
                 System.out.println();
-                counter++;
 
             }
             else if(maxPrice==0&&airline.getFlightName().equalsIgnoreCase(flightName)&&airline.getDestination().equalsIgnoreCase(destination)){
+                counter++;
                 System.out.println(counter+". ");
                 System.out.println("Flight Name: "+airline.getFlightName());
                 System.out.println("Flight Number: "+airline.getFlightNumber());
@@ -104,11 +105,11 @@ public class Airport {
                 System.out.println("Gate Number: "+airline.getGateNum());
                 System.out.println("Ticket Price: "+airline.getTicketPrice());
                 System.out.println();
-                counter++;
 
             }
             else if(flightName.equals("")&&destination.equals("")
                     &&airline.getTicketPrice()<=maxPrice){
+                counter++;
                 System.out.println(counter+". ");
                 System.out.println("Flight Name: "+airline.getFlightName());
                 System.out.println("Flight Number: "+airline.getFlightNumber());
@@ -118,11 +119,11 @@ public class Airport {
                 System.out.println("Gate Number: "+airline.getGateNum());
                 System.out.println("Ticket Price: "+airline.getTicketPrice());
                 System.out.println();
-                counter++;
 
             }
             else if(flightName.equals("")&&airline.getDestination().equalsIgnoreCase(destination)
                     &&maxPrice==0){
+                counter++;
                 System.out.println(counter+". ");
                 System.out.println("Flight Name: "+airline.getFlightName());
                 System.out.println("Flight Number: "+airline.getFlightNumber());
@@ -132,11 +133,11 @@ public class Airport {
                 System.out.println("Gate Number: "+airline.getGateNum());
                 System.out.println("Ticket Price: "+airline.getTicketPrice());
                 System.out.println();
-                counter++;
 
             }
-            else if(destination.equals("")&&flightName.equalsIgnoreCase(airline.getFlightName())
+            else if(destination.equals("")&&airline.getFlightName().equalsIgnoreCase(flightName)
                     &&maxPrice==0){
+                counter++;
                 System.out.println(counter+". ");
                 System.out.println("Flight Name: "+airline.getFlightName());
                 System.out.println("Flight Number: "+airline.getFlightNumber());
@@ -146,10 +147,9 @@ public class Airport {
                 System.out.println("Gate Number: "+airline.getGateNum());
                 System.out.println("Ticket Price: "+airline.getTicketPrice());
                 System.out.println();
-                counter++;
 
             }
-            else {
+            if(counter==0){
                 successful=Boolean.FALSE;
             }
         }

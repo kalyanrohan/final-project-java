@@ -84,6 +84,13 @@ public class driver {
                                 case 1 -> {
                                     int chooseFlight;
                                     ePort.displayAirlines();
+                                    int subChoice3;
+                                    System.out.println("1.Choose flight");
+                                    System.out.println("2.Back");
+                                    subChoice3=sc.nextInt();
+                                    if(subChoice3==2){
+                                        break;
+                                    }
                                     System.out.println("Enter the number of desired flight: ");
                                     chooseFlight = sc.nextInt();
                                     ePort.buyTicket(account, passenger, ePort.getAirlineList().get(chooseFlight-1));
@@ -92,17 +99,25 @@ public class driver {
                                 case 2 -> {
                                     String flightName;
                                     String destination;
-                                    float maxPrice=0;
+                                    float maxPrice;
+                                    int subChoice3;
                                     Airline airline = new Airline();
                                     String flightNumber;
                                     System.out.println("Enter flight Name: ");
-                                    flightName = sc.nextLine();
                                     sc.nextLine();
+                                    flightName = sc.nextLine();
+                                    System.out.println(flightName);
                                     System.out.println("Enter destination: ");
                                     destination = sc.nextLine();
                                     System.out.println("Enter max price: ");
                                     maxPrice = sc.nextFloat();
                                     sc.nextLine();
+                                    System.out.println("1.Choose flight");
+                                    System.out.println("2.Back");
+                                    subChoice3=sc.nextInt();
+                                    if(subChoice3==2){
+                                        break;
+                                    }
                                     if(ePort.displayAirlines(flightName, destination, maxPrice)==Boolean.FALSE) {
                                         System.out.println("sorry no flights found.");
                                         break;
@@ -156,6 +171,13 @@ public class driver {
                                 case 1 -> {
                                     int chooseFlight;
                                     ePort.displayAirlines();
+                                    int subChoice3;
+                                    System.out.println("1.Choose flight");
+                                    System.out.println("2.Back");
+                                    subChoice3=sc.nextInt();
+                                    if(subChoice3==2){
+                                        break;
+                                    }
                                     System.out.println("Enter the number of desired flight: ");
                                     chooseFlight = sc.nextInt();
                                     ePort.buyTicket(account, passenger1, ePort.getAirlineList().get(chooseFlight-1));
@@ -175,16 +197,23 @@ public class driver {
                                 case 2 -> {
                                     String flightName;
                                     String destination;
-                                    float maxPrice=0;
+                                    float maxPrice;
+                                    int subChoice3;
                                     Airline airline = new Airline();
                                     String flightNumber;
                                     System.out.println("Enter flight Name: ");
-                                    flightName = sc.nextLine();
                                     sc.nextLine();
+                                    flightName = sc.nextLine();
                                     System.out.println("Enter destination: ");
                                     destination = sc.nextLine();
                                     System.out.println("Enter max price: ");
                                     maxPrice = sc.nextFloat();
+                                    System.out.println("1.Choose flight");
+                                    System.out.println("2.Back");
+                                    subChoice3=sc.nextInt();
+                                    if(subChoice3==2){
+                                        break;
+                                    }
                                     if(ePort.displayAirlines(flightName, destination, maxPrice)==Boolean.FALSE) {
                                         System.out.println("sorry no flights found.");
                                         break;
@@ -218,6 +247,10 @@ public class driver {
                     }
                     break;
                 case 2:
+                    if(passenger.getMyTickets().size()==0){
+                        System.out.println("You have not purchased any tickets");
+                        break;
+                    }
                     passenger.getTicketDetails();
                     System.out.println("Confirm check in?");
                     System.out.println("1. Yes I want to confirm.");
