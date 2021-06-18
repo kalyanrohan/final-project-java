@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
+//interface for classes such as ticket and airline which inherits the same set of functions
 public interface Details {
     String getFlightName();
 

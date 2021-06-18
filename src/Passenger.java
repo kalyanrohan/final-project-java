@@ -1,4 +1,3 @@
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Passenger  {
@@ -9,9 +8,12 @@ public class Passenger  {
     private String nationality;
     private boolean checkedIn;
     private boolean immigrationStamped;
+    //array list to store own tickets
     private ArrayList<Ticket>myTickets=new ArrayList<>();
+    //array list to store tickets that are bought for someone else
     private ArrayList<Passenger>TicketsIBought=new ArrayList<>();
 
+    //constructor
     public Passenger(String firstName,String lastName,int age, String nationality,boolean checkedIn,boolean immigrationStamped,String gender){
         this.firstName=firstName;
         this.lastName=lastName;
@@ -21,11 +23,11 @@ public class Passenger  {
         this.checkedIn=checkedIn;
         this.immigrationStamped=immigrationStamped;
     }
-
+    //default constructor
     public Passenger(){
     }
 
-
+    //getters overriding the interface
     public int getAge() {
         return age;
     }
@@ -46,6 +48,24 @@ public class Passenger  {
         return gender;
     }
 
+    //unique getters that are not from the interface
+    public boolean isImmigrationStamped() {
+        return immigrationStamped;
+    }
+
+    public boolean isCheckedIn() {
+        return checkedIn;
+    }
+
+    public ArrayList<Ticket> getMyTickets() {
+        return myTickets;
+    }
+
+    public ArrayList<Passenger> getTicketsIBought() {
+        return TicketsIBought;
+    }
+
+    //looping through the myTickets array and printing out every detail the ticket has
     public void getTicketDetails(){
         for (Ticket myTicket : myTickets) {
             System.out.println("First Name: " + getFirstName());
@@ -64,6 +84,7 @@ public class Passenger  {
         }
     }
 
+    //get details of passenger only
     public void getDetails(){
         System.out.println("First Name: "+getFirstName());
         System.out.println("Last Name: "+getLastName());
@@ -72,15 +93,7 @@ public class Passenger  {
         System.out.println("Nationality: "+getNationality());
         System.out.println();
     }
-
-    public boolean isImmigrationStamped() {
-        return immigrationStamped;
-    }
-
-    public boolean isCheckedIn() {
-        return checkedIn;
-    }
-
+    //setters
     public void setAge(int age) {
         this.age = age;
     }
@@ -107,18 +120,6 @@ public class Passenger  {
 
     public void setImmigrationStamped(boolean immigrationStamped) {
         this.immigrationStamped = immigrationStamped;
-    }
-
-    public void addTicket(Ticket ticket){
-        myTickets.add(ticket);
-    }
-
-    public ArrayList<Ticket> getMyTickets() {
-        return myTickets;
-    }
-
-    public ArrayList<Passenger> getTicketsIBought() {
-        return TicketsIBought;
     }
 
 }

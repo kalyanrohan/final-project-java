@@ -8,8 +8,10 @@ public class Airline implements Details {
     private LocalDateTime estArrival;
     private int gateNumber;
     private float ticketPrice;
+    //array list to store passengers
     private ArrayList<String>passengerList=new ArrayList<>();
 
+    //constructor
     public Airline(String airlineName,String flightNum,String Dest,LocalDateTime dep,LocalDateTime avl,int gateNumber,
                    float ticketPrice){
         this.airlineName=airlineName;
@@ -20,35 +22,8 @@ public class Airline implements Details {
         this.gateNumber=gateNumber;
         this.ticketPrice=ticketPrice;
     }
+    //default constructor
     public Airline(){
-
-    }
-//setters
-    public void setFlightName(String name) {
-        this.airlineName = name;
-    }
-
-    public void setDestination(String destination) {
-        Destination = destination;
-    }
-
-    public void setFlightNumber(String flightNumber) {
-        this.flightNumber = flightNumber;
-    }
-
-    public void setDeparture(int hour,int minute,int year,int month,int day) { this.departure = LocalDateTime.of(year,
-            month,day,hour,minute); }
-
-    public void setEstArrival(int hour,int minute,int day,int month,int year) {
-        this.estArrival = LocalDateTime.of(year,month,day,hour,minute);
-    }
-
-    public void setGateNumber(int gateNumber) {
-        this.gateNumber = gateNumber;
-    }
-
-    public void setTicketPrice(float ticketPrice) {
-        this.ticketPrice = ticketPrice;
     }
 
     //getters
@@ -84,6 +59,8 @@ public class Airline implements Details {
         return passengerList;
     }
 
+    //to check if airline already reach maximum capacity
+    //if max capacity reached then return True
     public boolean isFullCapacity(){
         boolean fullCapacity = Boolean.FALSE;
         int maximumCapacity = 100;
@@ -93,6 +70,8 @@ public class Airline implements Details {
         return fullCapacity;
     }
 
+    //to add passengers to the passenger array list
+    //checks if airline have reached max capacity, if not then add passenger to array list
     public void addPassengers(Passenger passenger){
         if(isFullCapacity()==Boolean.FALSE){
             passengerList.add(passenger.getFirstName()+" "+passenger.getLastName());
