@@ -13,7 +13,7 @@ public class Airport {
         this.name=Name;
     }
 
-    //add airline to array list by getting all the necessary attributes which will be done throught the input
+    //add airline to array list by getting all the necessary attributes which will be done through the input
     //of users and then use those inputs to create a new airline. Once created then, add airline to the array list.
     public void addAirline(String airlineName, String flightNum, String Dest, LocalDateTime dep, LocalDateTime avl,int gateNumber,float ticketPrice){
         Airline airline=new Airline(airlineName,flightNum,Dest,dep,avl,gateNumber,ticketPrice);
@@ -151,11 +151,13 @@ public class Airport {
                 System.out.println();
 
             }
-            //if the counter is 0, this means that none of the airlines in the array list matches any of the criteria
-            // hence change to FALSE
-            if(counter==0){
-                successful=Boolean.FALSE;
-            }
+
+
+        }
+        //if the counter is 0, this means that none of the airlines in the array list matches any of the criteria
+        // hence change to FALSE
+        if(counter==0){
+            successful=Boolean.FALSE;
         }
         //if no airline matches the criteria given by the user, then successful becomes false. If found then it stays true
         return successful;

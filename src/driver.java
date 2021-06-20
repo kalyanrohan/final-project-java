@@ -338,6 +338,10 @@ public class driver {
                         System.out.println("You have not purchased any tickets");
                         break;
                     }
+                    if (passenger.isCheckedIn()==Boolean.TRUE){
+                        System.out.println("You have already checked in");
+                        break;
+                    }
                     //display ticket details and confirm check in
                     passenger.getTicketDetails();
                     System.out.println("Confirm check in?");
@@ -350,6 +354,7 @@ public class driver {
                         passenger.setCheckedIn(Boolean.TRUE);
                         passenger.setImmigrationStamped(Boolean.TRUE);
                     }
+                    System.out.println("Check in status: "+passenger.isCheckedIn());
                 }
                 //Deposit
                 case 3 -> {
