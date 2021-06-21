@@ -404,6 +404,11 @@ public class driver {
                             System.out.println("Refund is not available because you have checked in.");
                             break;
                         }
+                        //check if there are any tickets in the my tickets array
+                        if(passenger.getMyTickets().size()==0){
+                            System.out.println("Sorry you have not purchased any tickets");
+                            break;
+                        }
                         //show ticket details
                         passenger.getTicketDetails();
                         //user enters the flight number stated on their tickets to confirm cancellation
